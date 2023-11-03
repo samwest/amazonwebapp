@@ -29,4 +29,4 @@ jobs:
         REPO: amazonwebapp
       run: docker build --build-arg JAR_FILE=build/libs/\*.jar -t swest152/$REPO .
     - name: Push to Dockerhub
-      run: docker push ${{secrets.DOCKER_USERNAME}}/$REPO
+      run: docker push ${{secrets.DOCKER_USERNAME}}/amazonwebapp
