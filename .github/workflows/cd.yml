@@ -14,8 +14,8 @@ jobs:
 
     steps:
       - name: Pull Docker image
-        run: sudo docker pull ${{secrets.DOCKER_USERNAME}}/amazonwebapp:latest
+        run: sudo docker pull swest152/amazonwebapp:latest
       - name: Delete Old docker container
-        run: sudo docker rm -f ${{secrets.DOCKER_USERNAME}}/amazonwebapp || true
+        run: sudo docker rm -f swest152/amazonwebapp || true
       - name: Run Docker Container
-        run: sudo docker run -p 80:8080 ${{secrets.DOCKER_USERNAME}}/amazonwebapp
+        run: sudo docker run -p 80:8080 swest152/amazonwebapp
