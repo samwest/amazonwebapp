@@ -25,6 +25,7 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build --build-arg JAR_FILE=build/libs/\*.jar -t swest152/amazonwebapp .
+      #remove references to name
+      run: docker build --build-arg JAR_FILE=build/libs/\*.jar -t ${{secrets.DOCKER_USERNAME}}/amazonwebapp .
     - name: Push to Dockerhub
-      run: docker push swest152/amazonwebapp
+      run: docker push ${{secrets.DOCKER_USERNAME}}/amazonwebapp
