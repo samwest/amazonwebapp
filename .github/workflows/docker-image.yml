@@ -27,4 +27,4 @@ jobs:
     - name: Build the Docker image
       run: docker build --build-arg JAR_FILE=build/libs/\*.jar -t swest152/amazonwebapp .
     - name: Push to Dockerhub
-      run: docker push ${{secrets.DOCKER_USERNAME}}/amazonwebapp
+      run: docker push swest152/amazonwebapp
