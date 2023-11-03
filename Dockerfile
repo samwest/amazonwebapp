@@ -1,6 +1,6 @@
 FROM openjdk:17-oracle
 # Set the working directory inside the container
-
+EXPOSE 8080
 VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
