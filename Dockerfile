@@ -1,5 +1,6 @@
+
 FROM openjdk:17-oracle
-# Set the working directory inside the container
+#This is likely optional and unecessary
 EXPOSE 8080
 VOLUME /tmp
 ARG JAR_FILE

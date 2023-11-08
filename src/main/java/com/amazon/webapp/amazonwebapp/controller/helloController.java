@@ -1,6 +1,7 @@
 package com.amazon.webapp.amazonwebapp.controller;
 
 import com.amazon.webapp.amazonwebapp.data.Greeting;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,12 +15,14 @@ public class helloController {
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World!!!!!!!!!!!??????") String name) {
-        return Greeting.builder().id(counter.incrementAndGet()).content(String.format(template, name)).build();
+    public ResponseEntity<Greeting> greeting(@RequestParam(value = "name", defaultValue = "World!!!!!!!!!!!??????") String name) {
+        final Greeting greeting = Greeting.builder().id(counter.incrementAndGet()).content(String.format(template, name)).build();
+        return ResponseEntity.ok(greeting);
     }
 
     @GetMapping({"/"})
-    public Greeting helloWorld() {
-        return Greeting.builder().id(this.counter.incrementAndGet()).content(" Hello World!!!!!?????").build();
+    public ResponseEntity<Greeting> helloWorld() {
+        final Greeting greeting = Greeting.builder().id(this.counter.incrementAndGet()).content(" Hello World!!!!!?????").build();
+        return ResponseEntity.ok(greeting);
     }
 }
